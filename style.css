@@ -3,7 +3,7 @@ body {
   height: 100%;
   margin: 0;
   scroll-behavior: smooth;
-  color: white;
+  
 }
 
 #loading-screen {
@@ -33,12 +33,16 @@ body {
   align-items: center;
 }
 
+.first-page{
+  height: 100vh;
+}
 .navigation {
   width: 100%;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
+  font-size: 22px;
   box-sizing: border-box;
 }
 
@@ -87,6 +91,7 @@ body {
 .first-container {
   width: 100%;
   background-color: darkgrey;
+  color: white;
 }
 .navigation a {
   text-decoration: none;
