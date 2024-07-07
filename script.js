@@ -29,10 +29,11 @@ document.addEventListener("DOMContentLoaded", () => {
     clearInterval(interval);
     loadingScreen.classList.add("hidden");
     setTimeout(() => {
-      window.scrollTo({
-        top: window.innerHeight,
-        behavior: "smooth",
-      });
+      // Uncomment the below lines to scroll to the home section after the loading screen
+      // window.scrollTo({
+      //   top: window.innerHeight,
+      //   behavior: "smooth",
+      // });
     }, 1000); // Wait for the fade-out transition to complete
-  }, 5000); // Changed from 3500 to 5000 (5 seconds)
+  }, 3550); // 3.55 seconds
 });
