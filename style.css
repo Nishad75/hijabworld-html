@@ -4,6 +4,7 @@ body {
   margin: 0;
   scroll-behavior: smooth;
   scrollbar-width: none;
+  position: relative;
 }
 
 #loading-screen {
@@ -31,19 +32,21 @@ body {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  border: 2px solid black;
 }
 
-.first-page {
-  height: 100vh;
-}
 .navigation {
   width: 100%;
-  display: flex;
+  display: inline-flex;
   justify-content: space-between;
   align-items: center;
   padding: 20px;
   font-size: 22px;
   box-sizing: border-box;
+  /* position: sticky;
+  top: 0; */
+  /* border: 2px solid black; */
+  background-color: darkgray;
 }
 
 .firstcenter {
@@ -64,9 +67,31 @@ body {
 .left {
   font-size: 22px;
   border: 2px solid black;
-  padding: 20px 100px 20px 10px;
-  border-radius: 60px;
-  margin-left: 0px;
+  padding: 10px 30px 10px 100px;
+  border-radius: 80px;
+  margin-left: -110px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  gap: 50px;
+}
+.circle img {
+  height: 70px;
+  background-color: darkgray;
+  border: 2px solid black;
+  border-radius: 75px;
+  padding: 10px;
+  color: white;
+  animation: rotate 5s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .right {
@@ -75,7 +100,7 @@ body {
 
 .slider-1 .item {
   flex: 0 0 auto;
-  font-size: 8em;
+  font-size: 10em;
   font-family: fantasy;
   white-space: nowrap;
 }
@@ -246,28 +271,134 @@ body {
   cursor: pointer;
 }
 .fifth-container {
-  height: 25vh;
+  height: 80vh;
   width: 100%;
   background-color: #000;
   color: white;
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .fourth-container {
   height: 70vh;
   /* width: 100vw; */
-  background-color: aqua;
+  /* background-color: aqua; */
   display: grid;
   grid-template-columns: 300px 300px 300px;
-  grid-template-rows: 300px 300px 300px;
-  align-items: center;
+  /* grid-template-rows: 300px 300px 300px; */
+  /* align-items: center; */
   justify-content: center;
   overflow: auto;
   scrollbar-width: none;
-  gap: 20px;
+  row-gap: 50px;
+  column-gap: 100px;
   padding: 25px;
 }
-.items {
+.fourth-container .items {
   height: 300px;
   width: 300px;
   border: 2px solid black;
+  align-content: center;
+  text-align: center;
+  border-radius: 25px;
+}
+.fourth-container .items .name {
+  margin-top: 40px;
+  margin-bottom: 100px;
+}
+
+.fourth-container .items .btn button {
+  padding: 5px 40px;
+  border-radius: 25px;
+  cursor: pointer;
+}
+.button-green {
+  background-color: rgb(75, 213, 75);
+}
+.button-red {
+  background-color: rgb(174, 64, 64);
+}
+.button-green:hover {
+  color: white;
+}
+.button-red:hover {
+  color: white;
+}
+.fifth-container .Contact p {
+  font-size: 4em;
+}
+.Contact .span img {
+  width: 25px;
+}
+.small {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  border-bottom: 2px solid white;
+  margin-bottom: 92px;
+}
+.small img {
+  width: 50px;
+  background-color: white;
+  height: 50px;
+  border: 2px solid;
+  border-radius: 70px;
+}
+.btn-2 button {
+  padding: 20px;
+  border: 2px solid #8a8585;
+  border-radius: 50px;
+  background-color: black;
+  color: white;
+  font-size: 15px;
+  gap: 20px;
+}
+.btn-2 {
+  display: flex;
+  gap: 41px;
+  margin-top: -5px;
+}
+.work{
+  padding: 0px 100px;
+}
+.Recent{
+  border-bottom: 2px solid rgb(156, 153, 153);
+  padding: 40px;
+}
+.project{
+  height: auto;
+  width: 100%;
+}
+.proj{
+  border-bottom: 2px solid rgb(156, 153, 153);
+  padding: 80px;
+  font-size: 4em;
+  display: flex;
+    justify-content: space-between;
+}
+.proj .Description{
+  font-size: 20px;
+}
+/* .proj .Description:hover{
+  font-size: 23px;
+} */
+.project .proj:hover{
+  cursor: pointer;
+  color: darkgray;
+  font-size: 4.1em;
+}
+.projects{
+  text-align: center;
+}
+.projects button{
+  padding: 20px 40px;
+    margin-top: 60px;
+    margin-bottom: 60px;
+    font-size: 20px;
+    border-radius: 55px;
+}
+.projects button:hover{
+cursor: pointer;
+color: darkgray;
+background-color: white;
 }
