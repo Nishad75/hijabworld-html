@@ -37,3 +37,41 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Wait for the fade-out transition to complete
   }, 3550); // 3.55 seconds
 });
+window.onload=function(){
+  setTimeout(function(){
+    document.querySelector('.navigation').classList.add('sticky');
+  },3550);
+};
+
+
+document.addEventListener("DOMContentLoaded", () => {
+  const elements = document.querySelectorAll(".auto-blur");
+
+  function handleScroll() {
+    let screenHeight = window.innerHeight;
+    let startTrigger = screenHeight * 0.4; // 40% from bottom
+    let endTrigger = 0; // Top of screen
+
+    elements.forEach((element) => {
+      let rect = element.getBoundingClientRect();
+      let elementTop = rect.top;
+      let elementHeight = rect.height;
+
+      // Ensure the element is within the trigger range
+      if (elementTop < startTrigger && elementTop > endTrigger - elementHeight) {
+        let progress = (startTrigger - elementTop) / (startTrigger - endTrigger);
+        progress = Math.min(Math.max(progress, 0), 1); // Keep progress between 0 and 1
+        let rotation = progress * 360; // Exactly one rotation from entry to exit
+
+        element.style.transform = `rotateY(${rotation}deg)`;
+      }
+    });
+  }
+
+  window.addEventListener("scroll", handleScroll);
+});
+
+
+
+
+

@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 5em;
-  z-index: 1000; /* Ensures it stays above other content */
+   z-index: 1000; /* Ensures it stays above other content */
   transition: opacity 1s ease-out;
 }
 
@@ -47,13 +47,27 @@ body {
   top: 0; */
   /* border: 2px solid black; */
   background-color: darkgray;
+  position: relative;
+  top: 0;
+  z-index: 999;
+}
+  .navigation.sticky{
+  position: sticky;
+  top: 0;
 }
 .navigation .navbar .child:hover {
   color: black;
+  
+
   /* border: 2px solid black;
   border-radius: 50%;
   padding:5px 10px 5px 10px; */
 }
+.navigation .navbar{
+  display: flex;
+  align-items: center;
+}
+
 .firstcenter {
   display: flex;
   justify-content: space-between;
@@ -143,6 +157,13 @@ body {
 }
 .second-container .row {
   justify-content: space-between;
+}
+.proj a {
+  text-decoration: none;
+  color: black;
+}
+.proj a:hover {
+  color: darkgray;
 }
 .slider {
   width: 100%;
@@ -458,4 +479,87 @@ body {
 }
 .fifth {
   margin-left: 250px;
+}
+.centerproject .h1 {
+  display: flex;
+  text-align: center;
+}
+.firstpro .button {
+  padding: 5px 40px;
+  margin-left: 32px;
+  background: white;
+  border-radius: 40px;
+  border: 1px solid darkgray;
+}
+#mode-toggle{
+border-radius: 50%;
+height: 50px;
+width: 50px;
+border: none;
+}
+
+
+
+
+.auto-blur {
+  display: inline-block;
+  font-weight: bold;
+  perspective: 800px; /* Apply depth effect */
+}
+
+.auto-blur span {
+  display: inline-block;
+  transform-origin: center;
+  transform: perspective(800px) rotateY(0deg);
+  transition: transform 0.5s ease-out;
+  
+  /* 3D text effect */
+  font-size: 3rem;
+  color: white;
+  text-shadow: 
+    -1px -1px 1px #444, 
+    1px 1px 1px #111, 
+    2px 2px 2px rgba(0, 0, 0, 0.8);
+  
+  background: linear-gradient(45deg, #ff0000, #ff7300, #ff0, #0f0, #00f, #ff00ff);
+  background-size: 400% 400%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 3s linear infinite;
+}
+
+/* Smooth gradient movement for the 3D text */
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+
+
+
+@keyframes rotateClockwise {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+
+@keyframes rotateAnticlockwise {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(-360deg);
+  }
+}
+
+.rotate-clockwise {
+  animation: rotateClockwise 1s linear;
+}
+
+.rotate-anticlockwise {
+  animation: rotateAnticlockwise 1s linear;
 }
