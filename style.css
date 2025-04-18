@@ -17,7 +17,7 @@ body {
   justify-content: center;
   align-items: center;
   font-size: 5em;
-   z-index: 1000; /* Ensures it stays above other content */
+  z-index: 1000; /* Ensures it stays above other content */
   transition: opacity 1s ease-out;
 }
 
@@ -33,6 +33,11 @@ body {
   justify-content: space-between;
   align-items: center;
   border: 2px solid black;
+}
+
+.section-1 {
+  position: relative; /* Ensures the image sticks to this section */
+  overflow: hidden; /* Prevents any unwanted overflow */
 }
 
 .navigation {
@@ -51,19 +56,18 @@ body {
   top: 0;
   z-index: 999;
 }
-  .navigation.sticky{
+.navigation.sticky {
   position: sticky;
   top: 0;
 }
 .navigation .navbar .child:hover {
   color: black;
-  
 
   /* border: 2px solid black;
   border-radius: 50%;
   padding:5px 10px 5px 10px; */
 }
-.navigation .navbar{
+.navigation .navbar {
   display: flex;
   align-items: center;
 }
@@ -491,75 +495,443 @@ body {
   border-radius: 40px;
   border: 1px solid darkgray;
 }
-#mode-toggle{
-border-radius: 50%;
-height: 50px;
-width: 50px;
-border: none;
+#mode-toggle {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  overflow: hidden;
 }
 
+.toggle-btn img {
+  width: 30px; /* Adjust icon size */
+  height: 30px;
+  position: absolute;
+  transition: opacity 0.3s ease-in-out;
+}
 
+.toggle-btn img:nth-child(1) {
+  opacity: 1; /* Sun icon default */
+}
 
+.toggle-btn img:nth-child(2) {
+  opacity: 0; /* Moon icon hidden */
+}
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ffffff;
+}
+
+.dark-mode .toggle-btn {
+  background: #333;
+}
+
+.dark-mode a,
+.dark-mode span {
+  color: #ffffff;
+}
+
+.dark-mode .section-1 {
+  background-color: #1a1a1a; /* Dark background */
+  color: #ffffff; /* Light text */
+}
+
+.dark-mode .section-1 a {
+  color: #ffffff;
+}
+
+.dark-mode .section-1 .navigation {
+  background-color: #1a1a1a; /* Darker navbar */
+}
+
+.dark-mode .section-1 .firstcenter {
+  background-color: #1a1a1a;
+}
+
+.profile-container {
+  position: absolute;
+  bottom: 0; /* Sticks to the bottom of .section-1 */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 0; /* Behind the list */
+}
+
+.profile-image {
+  width: auto; /* Adjust size as needed */
+  height: auto;
+  max-width: 100%;
+  display: block;
+  object-fit: cover;
+}
+
+/* Ensure .list.autotranslate is above the image */
+.list.autotranslate {
+  position: relative;
+  z-index: 2;
+}
+
+/* .autotranslate {
+  font-size: 6em;
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+} */
+
+.autotranslate {
+  font-size: 10vw; /* Adjust size dynamically based on viewport width */
+  font-weight: bold;
+  white-space: nowrap; /* Ensure text stays in one line */
+  position: absolute;
+  top: 50%;
+  /* left: 50%; */
+  transform: translate(-50%, -50%); /* Center the text */
+  width: 100vw;
+  text-align: center;
+  /* overflow: hidden; */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-image {
+    width: 280px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profile-image {
+    width: 220px;
+  }
+}
 
 .auto-blur {
   display: inline-block;
   font-weight: bold;
   perspective: 800px; /* Apply depth effect */
 }
+/* Smoother blur transitions */
+.auto-blur {
+  transition: filter 0.5s ease-out, transform 0.5s ease-out;
+}
+/* GSAP scroll-trigger tweaks */
+.autotranslate {
+  will-change: transform; /* GPU acceleration */
+}
 
-.auto-blur span {
-  display: inline-block;
-  transform-origin: center;
-  transform: perspective(800px) rotateY(0deg);
-  transition: transform 0.5s ease-out;
+/* Popup Styles */
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: var(--background-color);
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  z-index: 1000;
+  display: none;
+  height: 700px;
+  width: 800px;
+}
+.hidden {
+  display: none;
+}
+.popup-content {
+  text-align: left;
+}
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+  font-size: 20px;
+}
+.contact-button {
+  padding: 10px 20px;
+  background: var(--primary-color);
+  color: var(--text-color);
+  border: none;
+  cursor: pointer;
+}
+#contact-form {
+  text-align: center;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+.project-card {
+  border: 1px solid var(--border-color);
+  padding: 20px;
+  transition: transform 0.3s;
+}
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+/* Add to style.css */
+
+/* Update CSS variables */
+:root {
+  /* Light Mode */
+  --light-main-bg: #ffffff;
+  --light-form-bg: #e0e0e0; /* 12% darker than white */
+  --light-form-border: rgba(0, 0, 0, 0.15);
   
-  /* 3D text effect */
-  font-size: 3rem;
+  /* Dark Mode */
+  --dark-main-bg: #121212;
+  --dark-form-bg: #2a2a2a; /* 30% lighter than dark bg */
+  --dark-form-border: rgba(255, 255, 255, 0.15);
+}
+
+/* Simplified Popup Structure */
+.popup {
+  background: var(--light-form-bg);
+  border: 1px solid var(--light-form-border);
+  border-radius: 16px;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  width: 80vw;
+  max-width: 720px;
+  padding: 2rem;
+}
+
+.dark-mode .popup {
+  background: var(--dark-form-bg);
+  border-color: var(--dark-form-border);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+.light-mode .popup {
+  background: var(--light-form-bg);
+  border-color: var(--light-form-border);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* Remove nested box effect */
+.popup-content::after {
+  content: none; /* Remove the double border */
+}
+
+/* Unified Form Container */
+.form-grid {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Enhanced Input Fields */
+.input-group input,
+.input-group select,
+.input-group textarea {
+  background: rgba(0, 0, 0, 0.05);
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  background: rgba(0, 0, 0, 0.08);
+  border-color: var(--primary-color);
+}
+
+.dark-mode .input-group input,
+.dark-mode .input-group select,
+.dark-mode .input-group textarea {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.dark-mode .input-group input:focus,
+.dark-mode .input-group select:focus,
+.dark-mode .input-group textarea:focus {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Unified File Upload Area */
+.file-upload {
+  background: rgba(0, 0, 0, 0.03);
+  border: 2px dashed var(--light-form-border);
+}
+
+.dark-mode .file-upload {
+  background: rgba(255, 255, 255, 0.03);
+  border-color: var(--dark-form-border);
+}
+
+/* Submit Button Contrast */
+.submit-btn {
+  background: var(--primary-color);
   color: white;
-  text-shadow: 
-    -1px -1px 1px #444, 
-    1px 1px 1px #111, 
-    2px 2px 2px rgba(0, 0, 0, 0.8);
+  border: 2px solid transparent;
+}
+
+.submit-btn:hover {
+  background: #3700b3; /* Darker shade */
+  border-color: var(--primary-color);
+}
+
+.popup {
+  /* Creates depth without nested boxes */
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+
+.popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80vw;
+  max-width: 800px;
+  height: 80vh;
+  /* background: var(--background-color); */
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  display: none;
+  z-index: 1000;
+}
+
+.popup-content {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form-header {
+  text-align: center;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--primary-color);
+}
+
+.form-header h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.form-header p {
+  color: var(--text-secondary);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem 0;
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.input-group label {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.input-group input,
+.input-group select,
+.input-group textarea {
+  padding: 0.8rem;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  /* background: transparent; */
+  color: var(--text-color);
+  transition: border-color 0.3s ease;
+}
+
+.input-group input:focus,
+.input-group select:focus,
+.input-group textarea:focus {
+  border-color: var(--primary-color);
+  outline: none;
+}
+
+.file-upload {
+  border: 2px dashed var(--border-color);
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+}
+
+.file-upload:hover {
+  border-color: var(--primary-color);
+}
+
+.upload-text {
+  display: block;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+
+.file-types {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+}
+
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 1rem 2.5rem;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 50px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.submit-btn:hover {
+  transform: translateY(-2px);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+
+
+
+
+/* Responsive */
+@media (max-width: 768px) {
+  .popup {
+    width: 90vw;
+    height: 90vh;
+    padding: 1rem;
+  }
   
-  background: linear-gradient(45deg, #ff0000, #ff7300, #ff0, #0f0, #00f, #ff00ff);
-  background-size: 400% 400%;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  animation: gradientMove 3s linear infinite;
-}
-
-/* Smooth gradient movement for the 3D text */
-@keyframes gradientMove {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
-}
-
-
-
-
-@keyframes rotateClockwise {
-  from {
-    transform: rotateY(0deg);
+  .form-grid {
+    grid-template-columns: 1fr;
   }
-  to {
-    transform: rotateY(360deg);
+  
+  .submit-btn {
+    width: 100%;
+    justify-content: center;
   }
-}
-
-@keyframes rotateAnticlockwise {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(-360deg);
-  }
-}
-
-.rotate-clockwise {
-  animation: rotateClockwise 1s linear;
-}
-
-.rotate-anticlockwise {
-  animation: rotateAnticlockwise 1s linear;
 }

@@ -37,12 +37,11 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Wait for the fade-out transition to complete
   }, 3550); // 3.55 seconds
 });
-window.onload=function(){
-  setTimeout(function(){
-    document.querySelector('.navigation').classList.add('sticky');
-  },3550);
+window.onload = function () {
+  setTimeout(function () {
+    document.querySelector(".navigation").classList.add("sticky");
+  }, 3550);
 };
-
 
 document.addEventListener("DOMContentLoaded", () => {
   const elements = document.querySelectorAll(".auto-blur");
@@ -58,8 +57,12 @@ document.addEventListener("DOMContentLoaded", () => {
       let elementHeight = rect.height;
 
       // Ensure the element is within the trigger range
-      if (elementTop < startTrigger && elementTop > endTrigger - elementHeight) {
-        let progress = (startTrigger - elementTop) / (startTrigger - endTrigger);
+      if (
+        elementTop < startTrigger &&
+        elementTop > endTrigger - elementHeight
+      ) {
+        let progress =
+          (startTrigger - elementTop) / (startTrigger - endTrigger);
         progress = Math.min(Math.max(progress, 0), 1); // Keep progress between 0 and 1
         let rotation = progress * 360; // Exactly one rotation from entry to exit
 
@@ -73,5 +76,39 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+gsap.to(".autotranslate", {
+  x: () => -window.innerWidth, // Moves text right when scrolling down
+  ease: "none",
+  scrollTrigger: {
+    trigger: ".autotranslate",
+    start: "top bottom",
+    end: "bottom top",
+    scrub: 10,
+  },
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  const contactBtn = document.getElementById("contact-btn");
+  const popup = document.getElementById("contact-popup");
+  const closeBtn = document.querySelector(".close-btn");
+  const form = document.getElementById("contact-form");
+
+  contactBtn.addEventListener("click", () => {
+    popup.classList.remove("hidden");
+    popup.style.display = "block";
+  });
+
+  closeBtn.addEventListener("click", () => {
+    popup.classList.add("hidden");
+    popup.style.display = "none";
+  });
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    alert("Form submitted successfully!");
+    form.reset();
+    popup.classList.add("hidden");
+  });
+});
 
 
