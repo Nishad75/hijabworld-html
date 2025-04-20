@@ -74,8 +74,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", handleScroll);
 });
 
-
-
 gsap.to(".autotranslate", {
   x: () => -window.innerWidth, // Moves text right when scrolling down
   ease: "none",
@@ -103,12 +101,39 @@ document.addEventListener("DOMContentLoaded", function () {
     popup.style.display = "none";
   });
 
-  form.addEventListener("submit", function (e) {
+  form.addEventListener("submit", async (e) => {
     e.preventDefault();
-    alert("Form submitted successfully!");
-    form.reset();
-    popup.classList.add("hidden");
+
+    const submitBtn = document.querySelector(".submit-btn");
+    const formData = new FormData(form);
+
+    try {
+      submitBtn.innerHTML = "Sending...";
+
+      const response = await fetch("http://localhost:5000/submit-form", {
+        method: "POST",
+        body: formData,
+      });
+
+      // Check content type before parsing
+      const contentType = response.headers.get("content-type");
+      if (!contentType || !contentType.includes("application/json")) {
+        throw new Error("Server returned unexpected response format");
+      }
+
+      const result = await response.json();
+
+      if (result.success) {
+        alert("Message sent successfully!");
+        form.reset();
+        popup.classList.add("hidden");
+      } else {
+        throw new Error(result.message);
+      }
+    } catch (error) {
+      alert("Error: " + error.message);
+    } finally {
+      submitBtn.innerHTML = "Send Message";
+    }
   });
-});
-
-
+}); // ← This closing parenthesis was missing
