@@ -123,6 +123,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const result = await response.json();
 
+      console.log(result); // Log the result for debugging
+
       if (result.success) {
         alert("Message sent successfully!");
         form.reset();
