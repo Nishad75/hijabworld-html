@@ -32,11 +32,6 @@ const pool = mysql.createPool({
     queueLimit: 0
 });
 
-// Middleware
-app.use(cors({
-    origin: process.env.CLIENT_URL,
-    methods: ['POST']
-}));
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 
@@ -68,12 +63,12 @@ app.post('/submit-form', upload.single('file'), async (req, res) => {
             location
         });
 
-        // const [result] = await pool.promise().query(
-        //     `INSERT INTO submissions 
-        //     (name, email, phone, purpose, message, file_path, location)
-        //     VALUES (?, ?, ?, ?, ?, ?, ?)`,
-        //     [name, email, phone, purpose, message, filePath, location]
-        // );
+        const [result] = await pool.promise().query(
+            `INSERT INTO submissions 
+            (name, email, phone, purpose, message, file_path, location)
+            VALUES (?, ?, ?, ?, ?, ?, ?)`,
+            [name, email, phone, purpose, message, filePath, location]
+        );
 
         res.status(200).json({
             success: true,
