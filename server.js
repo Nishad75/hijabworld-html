@@ -14,16 +14,23 @@ if (!fs.existsSync(uploadDir)) {
     fs.mkdirSync(uploadDir);
 }
 
+app.use(express.static('public'));
+
+// Route to serve HTML file
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+});
+
 // MySQL Connection
-// const pool = mysql.createPool({
-//     host: process.env.DB_HOST,
-//     user: process.env.DB_USER,
-//     password: process.env.DB_PASSWORD,
-//     database: process.env.DB_NAME,
-//     waitForConnections: true,
-//     connectionLimit: 10,
-//     queueLimit: 0
-// });
+const pool = mysql.createPool({
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
+    waitForConnections: true,
+    connectionLimit: 10,
+    queueLimit: 0
+});
 
 // Middleware
 app.use(cors({
