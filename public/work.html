@@ -1,45 +1,164 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="description" content="Mohammad Nishad - Frontend Developer specializing in interactive web experiences.">
-    <link rel="icon" href="./assets/favicon.ico">
+    <meta
+      name="description"
+      content="Mohammad Nishad - Frontend Developer specializing in interactive web experiences."
+    />
+    <link rel="icon" href="./assets/favicon.ico" />
     <!-- Canonical URL if deployed -->
-    <link rel="canonical" href="https://yourportfolio.com">
-    <link rel="stylesheet" href="style.css">
+    <link rel="canonical" href="https://yourportfolio.com" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/responsive.css" />
+    <link rel="preload" href="./css/responsive.css" as="style" />
+    <script src="/script.js" defer></script>
+    <script src="/dark-mode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <title>Recent projects</title>
   </head>
-  <body>
+  <body class="light-mode">
     <div class="navigation">
-      <a href="#home">© Code By Mohammad Nishad</a>
+      <a href="index.html">© Code By Mohammad Nishad</a>
       <div class="navbar">
-        <a class="child" href="work.html">Work</a>
-        <a class="child" href="#about">About</a>
+        <!-- <a class="child" href="work.html">Work</a> -->
+        <a class="child" href="about.html">About</a>
         <a id="contact-btn" class="child contact-button" href="#contact"
           >Contact</a
         >
         <button id="mode-toggle" class="toggle-btn">
-          <img
-            src="/assets/icons mode/icons8-sun.svg"
-            alt="daymode"
-          /><img
+          <img src="/assets/icons mode/icons8-sun.svg" alt="daymode" /><img
             src="/assets/icons mode/icons8-moon-30.png"
             alt="nightmode"
           />
         </button>
       </div>
     </div>
-    <div class="container-projects dark-mode">
+    <div class="container-projects">
       <div class="centerproject">
-        <h1 class="auto-blur">PROJECTS</h1>
+        <h1>PROJECTS</h1>
       </div>
       <div class="project-grid">
         <div class="project-card">
           <h2>Loan Web App</h2>
           <p>Built with React and Firebase.</p>
-          <a href="/demo-for-job-2/index.html" class="project-link">View Project →</a>
+          <a href="/demo-for-job-2/index.html" class="project-link"
+            >View Project →</a
+          >
+        </div>
+        <div class="project-card">
+          <h2>Loan Web App</h2>
+          <p>Built with React and Firebase.</p>
+          <a href="/demo-for-job-2/index.html" class="project-link"
+            >View Project →</a
+          >
+        </div>
+        <div class="project-card">
+          <h2>Loan Web App</h2>
+          <p>Built with React and Firebase.</p>
+          <a href="/demo-for-job-2/index.html" class="project-link"
+            >View Project →</a
+          >
+        </div>
+        <div class="project-card">
+          <h2>Loan Web App</h2>
+          <p>Built with React and Firebase.</p>
+          <a href="/demo-for-job-2/index.html" class="project-link"
+            >View Project →</a
+          >
+        </div>
+        <div class="project-card">
+          <h2>Loan Web App</h2>
+          <p>Built with React and Firebase.</p>
+          <a href="/demo-for-job-2/index.html" class="project-link"
+            >View Project →</a
+          >
         </div>
         <!-- Add more cards -->
+      </div>
+    </div>
+    <div id="contact-popup" class="popup hidden">
+      <div class="popup-content">
+        <button class="close-btn">&times;</button>
+        <div class="form-header">
+          <h2>Let's Create Something Amazing</h2>
+          <p>Fill the form below - I usually respond within 24 hours</p>
+        </div>
+        <form id="contact-form">
+          <div class="form-grid">
+            <div class="input-group">
+              <label for="name">Full Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="email">Work Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@company.com"
+                required
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="phone">Contact Number</label>
+              <input
+                type="tel"
+                id="phone"
+                name="phone"
+                placeholder="+91 123 456 7890"
+                pattern="[0-9]{10}"
+              />
+            </div>
+
+            <div class="input-group">
+              <label for="purpose">Purpose</label>
+              <select id="purpose" name="purpose" required>
+                <option value="">Select Purpose</option>
+                <option value="Freelance">Freelance Project</option>
+                <option value="Collaboration">Creative Collaboration</option>
+                <option value="Employment">Employment Opportunity</option>
+                <option value="Other">Just Saying Hello</option>
+              </select>
+            </div>
+
+            <div class="input-group full-width">
+              <label for="message">Your Message</label>
+              <textarea
+                id="message"
+                name="message"
+                placeholder="Hey Nishad, I have an idea about..."
+                rows="4"
+                required
+              ></textarea>
+            </div>
+
+            <div class="input-group full-width">
+              <label for="file">Attach Files (optional)</label>
+              <div class="file-upload">
+                <input type="file" id="file" name="file" />
+                <span class="upload-text">Drag & drop or click to upload</span>
+                <span class="file-types">PDF, DOC, JPG (Max 5MB)</span>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            <span>Send Message</span>
+            <svg viewBox="0 0 24 24" width="20" height="20">
+              <path fill="currentColor" d="M2,21L23,12L2,3V10L17,12L2,14V21Z" />
+            </svg>
+          </button>
+        </form>
       </div>
     </div>
   </body>

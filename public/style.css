@@ -531,6 +531,31 @@ body.dark-mode {
   background: #333;
 }
 
+/* Add these styles to your CSS */
+.light-mode .project-link {
+  color: #2d2d2d; /* Dark color for light mode */
+  border-color: #2d2d2d;
+}
+
+.dark-mode .project-link {
+  color: #fff; /* White color for dark mode */
+  border-color: #fff;
+}
+
+.project-link {
+  text-decoration: none;
+  border-bottom: 2px solid;
+  transition: opacity 0.3s ease;
+}
+
+.project-link:hover {
+  opacity: 0.7;
+}
+
+.light-mode a,
+.light-mode span {
+  color: #000000;
+}
 .dark-mode a,
 .dark-mode span {
   color: #ffffff;
@@ -684,7 +709,7 @@ body.dark-mode {
   --light-main-bg: #ffffff;
   --light-form-bg: #e0e0e0; /* 12% darker than white */
   --light-form-border: rgba(0, 0, 0, 0.15);
-  
+
   /* Dark Mode */
   --dark-main-bg: #121212;
   --dark-form-bg: #2a2a2a; /* 30% lighter than dark bg */
@@ -783,7 +808,6 @@ body.dark-mode {
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
-
 .popup {
   position: fixed;
   top: 50%;
@@ -795,7 +819,7 @@ body.dark-mode {
   /* background: var(--background-color); */
   border-radius: 20px;
   padding: 2rem;
-  box-shadow: 0 20px 50px rgba(0,0,0,0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   display: none;
   z-index: 1000;
 }
@@ -917,10 +941,6 @@ body.dark-mode {
   padding: 0.5rem;
 }
 
-
-
-
-
 /* Responsive */
 @media (max-width: 768px) {
   .popup {
@@ -928,13 +948,58 @@ body.dark-mode {
     height: 90vh;
     padding: 1rem;
   }
-  
+
   .form-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .submit-btn {
     width: 100%;
     justify-content: center;
   }
+}
+
+/* Profile Image Section */
+.profile-section {
+  position: relative;
+  margin: 2rem auto;
+  max-width: 800px;
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.profile-image {
+  width: 300px;
+
+  height: 300px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 5px solid var(--primary-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.aboutmain {
+  display: flex;
+}
+.column-1 {
+  width: 60em;
+  margin-left: 30px;
+  height: 20em;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+.im-32 {
+  width: 15rem;
+}
+.im-32 {
+  height: 20rem;
 }

@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta
+      name="description"
+      content="Mohammad Nishad - Frontend Developer specializing in interactive web experiences."
+    />
+    <link rel="icon" href="./assets/favicon.ico" />
+    <!-- Canonical URL if deployed -->
+    <link rel="canonical" href="https://yourportfolio.com" />
+    <link rel="stylesheet" href="/style.css" />
+    <link rel="stylesheet" href="/responsive.css" />
+    <link rel="preload" href="./css/responsive.css" as="style" />
+    <script src="/script.js" defer></script>
+    <script src="/dark-mode.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+        <title>About Me - Mohammad Nishad</title>
+       
+      </head>
+      <body class="bg-gray-100 text-gray-800 font-sans">
+        <div class="navigation">
+          <a href="index.html">© Code By Mohammad Nishad</a>
+          <div class="navbar">
+            <!-- <a class="child" href="work.html">Work</a> -->
+            <a class="child" href="about.html">About</a>
+            <a id="contact-btn" class="child contact-button" href="#contact"
+              >Contact</a
+            >
+            <button id="mode-toggle" class="toggle-btn">
+              <img src="/assets/icons mode/icons8-sun.svg" alt="daymode" /><img
+                src="/assets/icons mode/icons8-moon-30.png"
+                alt="nightmode"
+              />
+            </button>
+          </div>
+        </div>
+
+        <div class="max-w-5xl mx-auto">
+          <!-- Header -->
+          <div class="flex items-center mb-8">
+            <img
+              src="assets/IMG_4306-removebg-preview.png"
+              alt="Mohammad Nishad"
+              class="im-32 im-32 rounded-full mr-6"
+            />
+            <div>
+              <h1 class="text-3xl font-bold">Mohammad Nishad</h1>
+              <p class="text-gray-600">Front-End Developer</p>
+              <p class="mt-2">
+                <a
+                  href="mailto:mohammadnishad1243.mn@gmail.com"
+                  class="text-blue-500 underline"
+                  >mohammadnishad1243.mn@gmail.com</a
+                >
+                |
+                <a href="tel:+919257858410" class="text-blue-500 underline"
+                  >9257858410</a
+                >
+              </p>
+              <div class="flex space-x-4 mt-2 text-sm">
+                <a
+                  href="https://mohammad-nishad-portfolio.vercel.app/"
+                  class="text-blue-600 underline"
+                  >Portfolio</a
+                >
+                <a
+                  href="https://github.com/Nishad75"
+                  class="text-blue-600 underline"
+                  >GitHub</a
+                >
+                <a
+                  href="https://linkedin.com/in/mohammadnishad75"
+                  class="text-blue-600 underline"
+                  >LinkedIn</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Profile -->
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold border-b pb-1 mb-3">About Me</h2>
+            <p>
+              I’m a detail-oriented Front-End Developer with hands-on experience
+              building responsive websites using modern tools like React,
+              JavaScript, and Tailwind CSS. I’ve worked on real-world projects
+              and internships that improved user experience and code efficiency.
+              I enjoy transforming ideas into scalable digital solutions and
+              collaborating with teams to create clean, user-centric designs.
+            </p>
+          </section>
+
+          <!-- Skills -->
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold border-b pb-1 mb-3">Skills</h2>
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+              <div><strong>Languages:</strong> HTML5, CSS3, JavaScript</div>
+              <div>
+                <strong>Frameworks:</strong> React, Bootstrap, Tailwind CSS
+              </div>
+              <div>
+                <strong>Tools:</strong> Git, GitHub, Netlify, Vercel, Postman,
+                VS Code
+              </div>
+              <div><strong>AI Tools:</strong> ChatGPT, DeepSeek</div>
+              <div>
+                <strong>Soft Skills:</strong> Problem-Solving, Team
+                Collaboration, Adaptability
+              </div>
+            </div>
+          </section>
+
+          <!-- Experience -->
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold border-b pb-1 mb-3">
+              Work Experience
+            </h2>
+            <div>
+              <h3 class="font-bold">ARCGATE Technologies LLP | Udaipur</h3>
+              <p class="text-sm italic">
+                Research Analyst | July 2023 – Jan 2024
+              </p>
+              <ul class="list-disc pl-6">
+                <li>
+                  Analyzed datasets for trends supporting business decisions.
+                </li>
+                <li>
+                  Collaborated with data teams to streamline reporting
+                  workflows.
+                </li>
+              </ul>
+            </div>
+            <div class="mt-4">
+              <h3 class="font-bold">Burak IT | Udaipur</h3>
+              <p class="text-sm italic">
+                Web Development Intern | June 2023 – Nov 2023
+              </p>
+              <ul class="list-disc pl-6">
+                <li>Built 3+ responsive website modules using React.</li>
+                <li>Reduced page load time by 20% through optimization.</li>
+              </ul>
+            </div>
+            <div class="mt-4">
+              <h3 class="font-bold">Solve Tech | Nathdwara</h3>
+              <p class="text-sm italic">Computer Technician | 2018–2019</p>
+              <ul class="list-disc pl-6">
+                <li>Resolved technical issues for 50+ clients.</li>
+              </ul>
+            </div>
+          </section>
+
+          <!-- Education -->
+          <section class="mb-8">
+            <h2 class="text-2xl font-semibold border-b pb-1 mb-3">Education</h2>
+            <ul class="list-disc pl-6">
+              <li>
+                <strong>B.Tech, Computer Science</strong> – Shree Nath Ji
+                Institute (2022–2024)
+              </li>
+              <li>
+                <strong>Diploma, Computer Science</strong> – Vidhya Bhavan
+                Polytechnic College (2019–2021)
+              </li>
+              <li>
+                <strong>10th Grade</strong> – Sunrise Academy, RBSE (2017)
+              </li>
+            </ul>
+          </section>
+
+          <!-- Footer -->
+          <footer class="text-center text-sm text-gray-500 mt-10">
+            <p>Languages Known: English, Hindi | DOB: 24/05/2001</p>
+            <p>&copy; Mohammad Nishad</p>
+          </footer>
+        </div>
+      </body>
+    </html>
